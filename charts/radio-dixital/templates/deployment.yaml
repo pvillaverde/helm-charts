@@ -22,6 +22,9 @@ spec:
         args:
         - task
         - {{ . }}
+        volumeMounts:
+        - name: config-volume
+          mountPath: /opt/radio_dixital/src/config/
         resources:
           requests:
             memory: "150Mi"
