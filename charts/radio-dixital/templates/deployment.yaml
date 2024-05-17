@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $.Release.Name }}-publish-tasks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ $.Release.Name }}-publish-tasks
+  template:
+    metadata:
+      labels:
+        app: {{ $.Release.Name }}-publish-tasks
+    spec:
+      containers:
+      {{- range tuple "publishTwitter" "publishMastodon" "publishDiscord" }}
+      - name: {{ . | kebabcase }}
+        securityContext:
+           {{- toYaml $.Values.securityContext | nindent 15 }}      
+        image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"     
+        command: ["deno"]
+        args:
+        - task
+        - {{ . }}
+        resources:
+          requests:
+            memory: "150Mi"
+            cpu: "100m"
+          limits:
+            memory: "150Mi"
+            cpu: "100m"
+      {{- end }}    
+      volumes:
+      - name: config-volume
+        secret:
+          secretName: {{ $.Values.secretName}}
