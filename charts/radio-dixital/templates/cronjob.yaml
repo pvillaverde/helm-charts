@@ -10,23 +10,22 @@ spec:
    jobTemplate:
       spec:
          template:
-         spec:
-            containers:
-            - name: {{ $v.task | kebabcase }}    
-              securityContext:
-                {{- toYaml $.Values.securityContext | nindent 15 }}      
-              image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"     
-              command: ["deno"]
-              args:
-              - task
-              - {{ $v.task}}
-              volumeMounts:
-              - name: config-volume
-              mountPath: /opt/radio_dixital/src/config/
-            restartPolicy: Never
-            volumes:
-            - name: config-volume
-              secret:
-              secretName: {{ $.Values.secretName}}
+            spec:
+               containers:
+               - name: {{ $v.task | kebabcase }}    
+                 securityContext: {{- toYaml $.Values.securityContext | nindent 19 }}      
+                 image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"     
+                 command: ["deno"]
+                 args:
+                 - task
+                 - {{ $v.task}}
+                 volumeMounts:
+                 - name: config-volume
+                   mountPath: /opt/radio_dixital/src/config/
+               restartPolicy: Never
+               volumes:
+               - name: config-volume
+                 secret:
+                   secretName: {{ $.Values.secretName}}
 ---
 {{- end }}    
