@@ -23,7 +23,7 @@ spec:
               volumeMounts:
               - name: config-volume
               mountPath: /opt/radio_dixital/src/config/
-              restartPolicy: Never
+            restartPolicy: Never
             volumes:
             - name: config-volume
               secret:
