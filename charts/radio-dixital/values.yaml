@@ -26,7 +26,8 @@ fullnameOverride: ""
 podSecurityContext: {}
 # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  allowPrivilegeEscalation: false
 # capabilities:
 #   drop:
 #   - ALL
