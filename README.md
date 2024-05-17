@@ -75,12 +75,21 @@ spec:
       schedule: "15 22 * * *"
     secretName: obradoirodixital-radio-dixital
 ```
+## 🧩 Development Notes
 
+Generate manifests: 
+```bash
+helm install --debug --dry-run  chart ./charts/chart/
+```
+Generate Schemas: 
+```bash
+helm schema-gen values.yaml > values.schema.json
+```
 
 
 ## 🙏 Acknowledgements
 
-- [helm-schema-gen](https://github.com/karuppiah7890/helm-schema-gen) -> helm schema-gen values.yaml > values.schema.json
+- [helm-schema-gen](https://github.com/karuppiah7890/helm-schema-gen)
 
 ## ⚖️ License
 
