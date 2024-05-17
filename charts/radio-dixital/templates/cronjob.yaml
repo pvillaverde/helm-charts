@@ -30,4 +30,5 @@ spec:
             - name: config-volume
               secret:
               secretName: {{ $.Values.secretName}}
+---
 {{- end }}    
