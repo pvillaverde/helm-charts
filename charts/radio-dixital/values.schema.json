@@ -1,0 +1,60 @@
+{
+   "$schema": "http://json-schema.org/schema#",
+   "type": "object",
+   "properties": {
+      "cronJobs": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "schedule": {
+                  "type": "string"
+               },
+               "task": {
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "fullnameOverride": {
+         "type": "string"
+      },
+      "image": {
+         "type": "object",
+         "properties": {
+            "digest": {
+               "type": "string"
+            },
+            "pullPolicy": {
+               "type": "string"
+            },
+            "registry": {
+               "type": "string"
+            },
+            "repository": {
+               "type": "string"
+            },
+            "tag": {
+               "type": "string"
+            }
+         }
+      },
+      "nameOverride": {
+         "type": "string"
+      },
+      "podSecurityContext": {
+         "type": "object"
+      },
+      "secretName": {
+         "type": "string"
+      },
+      "securityContext": {
+         "type": "object",
+         "properties": {
+            "allowPrivilegeEscalation": {
+               "type": "boolean"
+            }
+         }
+      }
+   }
+}

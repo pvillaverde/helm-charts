@@ -77,6 +77,11 @@ spec:
 ```
 
 
+
+## 🙏 Acknowledgements
+
+- [helm-schema-gen](https://github.com/karuppiah7890/helm-schema-gen) -> helm schema-gen values.yaml > values.schema.json
+
 ## ⚖️ License
 
 Copyright 2024 Pablo Villaverde Castro
