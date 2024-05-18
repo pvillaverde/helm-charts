@@ -56,14 +56,14 @@ spec:
   chart:
     spec:
       chart: radio-dixital
-      version: 0.1.0
+      version: 1.2.2
       sourceRef:
         kind: HelmRepository
         name: pvillaverde
         namespace: flux-system
   values:
     image:
-      tag: 1.1.0
+      tag: 1.2.2
     cronJobs:
     - task: refreshYoutube
       schedule: "15,45 * * * *"
@@ -72,7 +72,15 @@ spec:
     - task: refreshBlogs
       schedule: "5,55 * * * *"
     - task: refreshYoutubeStats
-      schedule: "15 22 * * *"
+      schedule: "20 1 1,9,17,25 * *"
+    - task: refreshTwitchChannels
+      schedule: "13 4 * * *"
+    - task: refreshTwitchGames
+      schedule: "*/15 * * * *"
+    - task: refreshTwitchClips
+      schedule: "0 5 * * 5" # Every Friday
+    - task: refreshTwitchStreams
+      schedule: "* * * * *" # Every Minute
     secretName: obradoirodixital-radio-dixital
 ```
 ## 🧩 Development Notes
