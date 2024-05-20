@@ -5,9 +5,13 @@
 image:
   registry: docker.io
   repository: pvillaverde/radio_dixital
-  tag: 1.1.0
+  tag: 1.3.0
   digest: ""
   pullPolicy: IfNotPresent
+# LogLevel for all the tasks (Publishers & Subscribers)
+logLevel: INFO
+TZ: Europe/Madrid
+# Tasks executed in CronJobs (RefreshTasks)
 cronJobs:
 - task: refreshYoutube
   schedule: "15,45 * * * *"
@@ -16,7 +20,15 @@ cronJobs:
 - task: refreshBlogs
   schedule: "5,55 * * * *"
 - task: refreshYoutubeStats
-  schedule: "15 22 * * *"
+  schedule: "20 1 1,9,17,25 * *"
+- task: refreshTwitchChannels
+  schedule: "13 4 * * *"
+- task: refreshTwitchGames
+  schedule: "*/15 * * * *"
+- task: refreshTwitchClips
+  schedule: "0 5 * * 5" # Every Friday
+- task: refreshTwitchStreams
+  schedule: "* * * * *" # Every Minute
 secretName: my-secret-config
 
 nameOverride: ""

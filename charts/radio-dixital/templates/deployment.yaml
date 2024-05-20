@@ -22,6 +22,11 @@ spec:
         args:
         - task
         - {{ . }}
+        env:
+        - name: LOG_LEVEL
+          value: {{ $.Values.LOG_LEVEL}}
+        - name: TZ
+          value: {{ $.Values.timeZone}}
         volumeMounts:
         - name: config-volume
           mountPath: /opt/radio_dixital/src/config/
