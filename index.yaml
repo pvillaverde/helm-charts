@@ -3,6 +3,16 @@ entries:
   radio-dixital:
   - apiVersion: v2
     appVersion: 1.3.0
+    created: "2024-05-20T18:43:59.524573837Z"
+    description: Obradoiro Dixital Galego App "R.A.D.I.O. Dixital"
+    digest: 87402df8ecabf179fdcb42ab7a3127bccf4e9db430163b19bd8da81b41b7301e
+    name: radio-dixital
+    type: application
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/radio-dixital-1.3.1/radio-dixital-1.3.1.tgz
+    version: 1.3.1
+  - apiVersion: v2
+    appVersion: 1.3.0
     created: "2024-05-20T18:34:42.650235134Z"
     description: Obradoiro Dixital Galego App "R.A.D.I.O. Dixital"
     digest: 4d7a065ace1da575e56514f28813d1991649c87ff2dcab0948674a8e9dcfe3f7
@@ -91,4 +101,4 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/radio-dixital-0.1.1/radio-dixital-0.1.1.tgz
     version: 0.1.1
-generated: "2024-05-20T18:34:42.650288423Z"
+generated: "2024-05-20T18:43:59.524617218Z"
