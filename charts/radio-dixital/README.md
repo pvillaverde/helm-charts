@@ -44,14 +44,14 @@ spec:
   chart:
     spec:
       chart: radio-dixital
-      version: 1.2.2
+      version: 1.2.3
       sourceRef:
         kind: HelmRepository
         name: pvillaverde
         namespace: flux-system
   values:
     image:
-      tag: 1.2.2
+      tag: 1.2.3
     cronJobs:
     - task: refreshYoutube
       schedule: "15,45 * * * *"
