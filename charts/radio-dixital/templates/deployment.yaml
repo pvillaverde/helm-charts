@@ -24,7 +24,7 @@ spec:
         - {{ . }}
         env:
         - name: LOG_LEVEL
-          value: {{ $.Values.LOG_LEVEL}}
+          value: {{ $.Values.logLevel}}
         - name: TZ
           value: {{ $.Values.timeZone}}
         volumeMounts:

@@ -53,7 +53,7 @@ spec:
     image:
       tag: 1.3.0
     logLevel: INFO
-    TZ: Europe/Madrid
+    timeZone: Europe/Madrid
     cronJobs:
     - task: refreshYoutube
       schedule: "15,45 * * * *"

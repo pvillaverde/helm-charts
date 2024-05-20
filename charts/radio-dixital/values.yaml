@@ -10,7 +10,7 @@ image:
   pullPolicy: IfNotPresent
 # LogLevel for all the tasks (Publishers & Subscribers)
 logLevel: INFO
-TZ: Europe/Madrid
+timeZone: Europe/Madrid
 # Tasks executed in CronJobs (RefreshTasks)
 cronJobs:
 - task: refreshYoutube
