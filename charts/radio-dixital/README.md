@@ -12,7 +12,7 @@ If you had already added this repo earlier, run `helm repo update` to retrieve t
 
 For example, to install the radio-dixital chart:
 ```bash
-    helm install radio-dixital pvillaverde/RadioDixital
+    helm install radio-dixital pvillaverde/radio-dixital
 ```
 To uninstall the chart:
 ```bash
@@ -30,7 +30,7 @@ spec:
   interval: 1h0m0s
   url: https://pvillaverde.github.io/helm-charts
 ```
-Launch a HelmRelease, for example the RadioDixital chart:
+Launch a HelmRelease, for example the radio-dixital chart:
 ```yaml
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
