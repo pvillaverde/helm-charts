@@ -2,9 +2,6 @@
    "$schema": "http://json-schema.org/schema#",
    "type": "object",
    "properties": {
-      "TZ": {
-         "type": "string"
-      },
       "cronJobs": {
          "type": "array",
          "items": {
@@ -61,6 +58,9 @@
                "type": "boolean"
             }
          }
+      },
+      "timeZone": {
+         "type": "string"
       }
    }
 }
