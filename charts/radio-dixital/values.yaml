@@ -5,7 +5,7 @@
 image:
   registry: docker.io
   repository: pvillaverde/radio_dixital
-  tag: 1.3.0
+  tag: 1.4.5
   digest: ""
   pullPolicy: IfNotPresent
 # LogLevel for all the tasks (Publishers & Subscribers)
