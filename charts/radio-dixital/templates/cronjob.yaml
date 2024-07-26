@@ -30,6 +30,13 @@ spec:
                  volumeMounts:
                  - name: config-volume
                    mountPath: /opt/radio_dixital/src/config/
+                 resources:
+                    requests:
+                       memory: "200Mi"
+                       cpu: "500m"
+                    limits:
+                       memory: "200Mi"
+                       cpu: "500m"
                restartPolicy: Never
                volumes:
                - name: config-volume
