@@ -44,7 +44,7 @@ spec:
   chart:
     spec:
       chart: radio-dixital
-      version: 1.4.5
+      version: 1.5.0
       sourceRef:
         kind: HelmRepository
         name: pvillaverde
