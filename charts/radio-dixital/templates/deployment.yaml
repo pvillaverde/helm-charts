@@ -12,6 +12,9 @@ spec:
       labels:
         app: {{ $.Release.Name }}-publish-tasks
     spec:
+      {{- if $.Values.priorityClassName }}
+      priorityClassName: {{ $.Values.priorityClassName }}
+      {{- end }}
       containers:
       {{- range tuple "publishTwitter" "publishMastodon" "publishDiscord" }}
       - name: {{ . | kebabcase }}

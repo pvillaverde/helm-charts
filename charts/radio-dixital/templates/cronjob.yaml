@@ -11,6 +11,9 @@ spec:
       spec:
          template:
             spec:
+               {{- if $.Values.priorityClassName }}
+               priorityClassName: {{ $.Values.priorityClassName }}
+               {{- end }}
                containers:
                - name: {{ $v.task | kebabcase }}    
                  securityContext: {{- toYaml $.Values.securityContext | nindent 19 }}      

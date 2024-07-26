@@ -33,7 +33,7 @@ secretName: my-secret-config
 
 nameOverride: ""
 fullnameOverride: ""
-
+priorityClassName: ""
 
 podSecurityContext: {}
 # fsGroup: 2000
