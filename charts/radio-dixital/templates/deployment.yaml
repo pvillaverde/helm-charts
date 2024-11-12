@@ -16,7 +16,7 @@ spec:
       priorityClassName: {{ $.Values.priorityClassName }}
       {{- end }}
       containers:
-      {{- range tuple "publishTwitter" "publishMastodon" "publishDiscord" }}
+      {{- range tuple "publishTwitter" "publishBluesky" "publishMastodon" "publishDiscord" }}
       - name: {{ . | kebabcase }}
         securityContext:
            {{- toYaml $.Values.securityContext | nindent 15 }}      

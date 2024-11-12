@@ -44,14 +44,14 @@ spec:
   chart:
     spec:
       chart: radio-dixital
-      version: 1.5.0
+      version: 1.6.0
       sourceRef:
         kind: HelmRepository
         name: pvillaverde
         namespace: flux-system
   values:
     image:
-      tag: 1.4.5
+      tag: 1.5.0
     logLevel: INFO
     timeZone: Europe/Madrid
     cronJobs:
