@@ -7,7 +7,7 @@ metadata:
   annotations:
     reloader.stakater.com/auto: "true"
 spec:
-  serviceName: {{ $.Release.Name }}
+  serviceName: {{ include "common.fullname" . }}
   replicas: 1
   selector:
     matchLabels:
