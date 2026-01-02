@@ -72,7 +72,7 @@ spec:
       {{- include "custom.extraVolumes" . | nindent 6 }}
   volumeClaimTemplates:
   - metadata:
-      name: {{ $.Release.Name }}-data
+      name: data
     spec:
       storageClassName: local-path
       accessModes:
