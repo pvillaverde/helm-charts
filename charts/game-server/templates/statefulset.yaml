@@ -45,7 +45,7 @@ spec:
           protocol: {{ .protocol }}
           name: {{ .name }}
         {{- end }}
-        resources: {{- toYaml $.Values.tolerations | nindent 10 }}
+        resources: {{- toYaml $.Values.resources | nindent 10 }}
         securityContext: {{- toYaml $.Values.containerSecurityContext | nindent 10 }}
         volumeMounts:
         {{- range .Values.mainVolumeMounts }}
