@@ -1,0 +1,37 @@
+{{- if $.Values.backupJob.enabled }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-{{ $.Release.Name }}-backup
+spec:
+  capacity:
+    storage: {{ $.Values.volumeSize}}
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  mountOptions:
+  - nfsvers=4.1
+  csi:
+    driver: nfs.csi.k8s.io
+    # volumeHandle format: {nfs-server-address}#{sub-dir-name}#{share-name}
+    # make sure this value is unique for every share in the cluster
+    volumeHandle: {{ $.Values.backupJob.nfsServer}}/{{ $.Release.Name }}##
+    volumeAttributes:
+      server: {{ $.Values.backupJob.nfsServer}}
+      share: /{{ $.Values.backupJob.nfsShare}}
+      subDir: {{ $.Release.Name }}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-{{ $.Release.Name }}-backup
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ $.Values.volumeSize}}
+  volumeName: pv-{{ $.Release.Name }}-backup
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+{{- end }}  

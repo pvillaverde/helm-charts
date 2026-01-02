@@ -1,0 +1,65 @@
+# Default values for chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  registry: docker.io
+  repository: pvillaverde/openttd-jgr
+  tag: 1.0.68
+  digest: ""
+  pullPolicy: IfNotPresent
+
+env:
+- name: PUID
+  value: "1000"
+- name: PGID
+  value: "3000"
+- name: TZ
+  value: Europe/Madrid
+extraEnv: []
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    cpu: 1000m
+    memory: 1024Mi
+
+priorityClassName: ""
+nodeSelector: {}
+tolerations: {}
+
+podSecurityContext:
+  fsGroup: 3000
+  seccompProfile:
+    type: RuntimeDefault
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: false
+  capabilities:
+    drop: [ "NET_RAW" ]
+
+backupJob:
+  enabled: false
+  schedule: "0 3 * * *"
+  nfsServer: "" # Must be set to use BackupJob
+  nfsShare: "" # Must be set to use BackupJob
+  forceInitRsync: false
+
+volumes: m
+volumeSize: 3Gi
+
+mainVolumeMounts:
+- mountPath: /data
+extraVolumes: []
+extraVolumesMounts: []
+service:
+  type: ClusterIP
+  sessionAffinity: None
+  ports: []
+    # name: "game-udp"
+    # port: "29070"
+    # protocol: UDP

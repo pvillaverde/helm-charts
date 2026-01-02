@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "common.fullname" . }}
+  labels: 
+    {{- include "common.labels" . | nindent 4 }}
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  serviceName: {{ $.Release.Name }}
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "common.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "common.labels" . | nindent 8 }}
+    spec:
+      automountServiceAccountToken: false
+      {{- if $.Values.priorityClassName }}
+      priorityClassName: {{ $.Values.priorityClassName }}
+      {{- end }}
+      securityContext: {{- toYaml $.Values.securityContext | nindent 8 }}
+      nodeSelector: {{- toYaml $.Values.nodeSelector | nindent 8 }}
+      tolerations: {{- toYaml $.Values.tolerations | nindent 8 }}
+      initContainers:
+        {{- include "initContainer" . | nindent 8 }}
+      containers:
+      - name: server
+        image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
+        imagePullPolicy: {{ $.Values.image.pullPolicy }}
+        env:
+        {{- range .Values.env }}
+        - name: {{ .name }}
+          value: {{ include "common.rendervalue" (dict "value" .value "context" $) | quote }}
+        {{- end }}
+        {{- range .Values.extraEnv }}
+        - name: {{ .name }}
+          value: {{ include "common.rendervalue" (dict "value" .value "context" $) | quote }}
+        {{- end }}
+        ports:
+        {{- range .Values.service.ports }}
+        - containerPort: {{ .port }}
+          protocol: {{ .protocol }}
+          name: {{ .name }}
+        {{- end }}
+        resources: {{- toYaml $.Values.tolerations | nindent 10 }}
+        securityContext: {{- toYaml $.Values.containerSecurityContext | nindent 10 }}
+        volumeMounts:
+        {{- range .Values.mainVolumeMounts }}
+        - name: data
+          mountPath: {{ .mountPath }}
+          {{- if .subPath }}
+          subPath: {{ .subPath }}
+          {{- end }}
+        {{- end }}
+        {{- range .Values.extraVolumesMounts }}
+        - name: {{ .name }}
+          mountPath: {{ .mountPath }}
+          {{- if .subPath }}
+          subPath: {{ .subPath }}
+          {{- end }}
+        {{- end }}
+      {{- include "common.extraContainers" . | nindent 6 }}
+      volumes:
+      {{- if $.Values.backupJob.enabled }}
+      - name: backup-data
+        persistentVolumeClaim:
+          claimName: pvc-{{ $.Release.Name }}-backup
+      {{- end }}
+      {{- include "custom.extraVolumes" . | nindent 6 }}
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ $.Release.Name }}-data
+    spec:
+      storageClassName: local-path
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: {{ $.Values.volumeSize}}
