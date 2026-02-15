@@ -5,6 +5,7 @@ metadata:
   name: rsync-{{ include "common.fullname" . }}-to-nfs
 spec:
   schedule: "0 3 * * *"
+  concurrencyPolicy: Forbid
   jobTemplate:
     spec:
       template:
