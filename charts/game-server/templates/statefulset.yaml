@@ -28,7 +28,7 @@ spec:
         {{- include "initContainer" . | nindent 8 }}
       containers:
       - name: server
-        image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
+        image: "{{ $.Values.image.registry }}/{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
         imagePullPolicy: {{ $.Values.image.pullPolicy }}
         env:
         {{- range .Values.env }}
