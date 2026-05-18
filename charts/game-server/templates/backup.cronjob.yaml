@@ -39,7 +39,7 @@ spec:
               claimName: data-{{ include "common.fullname" . }}-0
           - name: {{ include "common.fullname" . }}-backup-data
             persistentVolumeClaim:
-              claimName: pvc-{{ include "common.fullname" . }}-backup
+              claimName: pvc-{{ $.Release.Name }}-backup
           restartPolicy: OnFailure
           tolerations: {{- toYaml $.Values.tolerations | nindent 12 }}
 {{- end }}  
