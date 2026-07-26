@@ -11,9 +11,7 @@ spec:
       template:
         spec:
           automountServiceAccountToken: false
-          securityContext:
-            seccompProfile:
-              type: RuntimeDefault
+          securityContext: {{- toYaml $.Values.securityContext | nindent 8 }}
           containers:
           - name: init-rsync
             image: alpine:latest
@@ -26,13 +24,13 @@ spec:
             args:
             - |
               apk add rsync
-              cd /data/
-              rsync -avz . /backup/
+              cd /data/ && rsync -avz . /backup/
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
               capabilities:
                 drop: [ "all" ]
+                add: [ "DAC_OVERRIDE"]
           volumes:
           - name: {{ include "common.fullname" . }}-data
             persistentVolumeClaim:
