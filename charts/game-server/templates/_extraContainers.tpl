@@ -33,6 +33,7 @@
     readOnlyRootFilesystem: false
     capabilities:
       drop: [ "all" ]
+      add: [ "CAP_CHOWN"]
 {{- end }}
 {{- end }}
 
