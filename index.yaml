@@ -3,6 +3,16 @@ entries:
   game-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-07-26T16:24:34.31786014Z"
+    description: Helm Chart with common resource configurations for a game server
+    digest: e1693b21b054022598e1b8ab0ae3dde86fd75426537d561e6c5c40fb316ffb43
+    name: game-server
+    type: application
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/game-server-1.0.0-alpha-8/game-server-1.0.0-alpha-8.tgz
+    version: 1.0.0-alpha-8
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-05-18T08:03:23.397165058Z"
     description: Helm Chart with common resource configurations for a game server
     digest: 9cc2f4a59949052ee64b9ed7be4831e943669dd47a6b14b165a22dffd0aaef66
@@ -212,4 +222,4 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/radio-dixital-0.1.1/radio-dixital-0.1.1.tgz
     version: 0.1.1
-generated: "2026-05-18T08:03:23.397224446Z"
+generated: "2026-07-26T16:24:34.317979772Z"
