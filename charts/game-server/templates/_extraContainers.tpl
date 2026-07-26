@@ -33,7 +33,7 @@
     readOnlyRootFilesystem: false
     capabilities:
       drop: [ "all" ]
-      add: [ "CHOWN"]
+      add: [ "CHOWN", "DAC_OVERRIDE"]
 {{- end }}
 {{- end }}
 
