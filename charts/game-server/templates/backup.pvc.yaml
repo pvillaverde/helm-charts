@@ -5,7 +5,7 @@ metadata:
   name: pv-{{ $.Release.Name }}-backup
 spec:
   capacity:
-    storage: {{ $.Values.volumeSize}}
+    storage: {{ $.Values.dataVolume.size}}
   accessModes:
   - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
@@ -31,7 +31,7 @@ spec:
   - ReadWriteMany
   resources:
     requests:
-      storage: {{ $.Values.volumeSize}}
+      storage: {{ $.Values.dataVolume.size}}
   volumeName: pv-{{ $.Release.Name }}-backup
   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
 {{- end }}  

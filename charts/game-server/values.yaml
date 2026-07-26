@@ -47,15 +47,25 @@ backupJob:
   schedule: "0 3 * * *"
   nfsServer: "" # Must be set to use BackupJob
   nfsShare: "" # Must be set to use BackupJob
+  # force the overwrite of what is currently on the dataVolume with what it is in the backup.
   forceInitRsync: false
 
-volumes: m
-volumeSize: 3Gi
-
-mainVolumeMounts:
-- mountPath: /data
+# If the image or the server downloads stuff that is not needed to backup but you dont want to download each time the pod is created.
+gameFilesVolume:
+  enabled: false
+  size: 10Gi
+  mounts:
+  - mountPath: /game
+dataVolume:
+  size: 3Gi
+  # Where the data volume will be mounted. Can be used with subPaths, but the whole volume will be backed up with the cronJob.
+  mounts:
+  - mountPath: /data
+# extraVolumes for the container, i.e. if you want to mount config files or secrets.
 extraVolumes: []
+# extraVolumesMounts for the container, i.e. if you want to mount config files or secrets.
 extraVolumesMounts: []
+
 service:
   type: ClusterIP
   sessionAffinity: None

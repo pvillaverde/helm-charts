@@ -48,7 +48,16 @@ spec:
         resources: {{- toYaml $.Values.resources | nindent 10 }}
         securityContext: {{- toYaml $.Values.containerSecurityContext | nindent 10 }}
         volumeMounts:
-        {{- range .Values.mainVolumeMounts }}
+        {{- if $.Values.gameFilesVolume.enabled }}
+        {{- range .Values.gameFilesVolume.mounts }}
+        - name: gamefiles
+          mountPath: {{ .mountPath }}
+          {{- if .subPath }}
+          subPath: {{ .subPath }}
+          {{- end }}
+        {{- end }}
+        {{- end }}
+        {{- range .Values.dataVolume.mounts }}
         - name: data
           mountPath: {{ .mountPath }}
           {{- if .subPath }}
@@ -79,4 +88,15 @@ spec:
       - ReadWriteOnce
       resources:
         requests:
-          storage: {{ $.Values.volumeSize}}
+          storage: {{ $.Values.dataVolume.size}}
+  {{- if $.Values.gameFilesVolume.enabled }}
+  - metadata:
+      name: gamefiles
+    spec:
+      storageClassName: local-path
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: {{ $.Values.gameFilesVolume.size}}
+  {{- end }}
