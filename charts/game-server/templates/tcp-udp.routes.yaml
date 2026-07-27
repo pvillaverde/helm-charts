@@ -1,6 +1,6 @@
 {{- range .Values.service.ports }}
 apiVersion: gateway.networking.k8s.io/v1
-kind: {{- if eq .protocol "UDP" }}UDPRoute{{- else }}TCPRoute{{- end }}
+kind: {{ if eq .protocol "UDP" }}UDPRoute{{- else }}TCPRoute{{- end }}
 metadata:
   name: {{ include "common.fullname" $ }}-{{ .name }}
   labels:
