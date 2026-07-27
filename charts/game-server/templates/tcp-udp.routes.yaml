@@ -2,10 +2,10 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: {{- if eq .protocol "UDP" }}UDPRoute{{- else }}TCPRoute{{- end }}
 metadata:
-  name: {{ include "common.fullname" . }}-{{ .name }}
+  name: {{ include "common.fullname" $ }}-{{ .name }}
   labels:
-    {{- include "common.labels" . | nindent 4 }}
-  {{- with .Values.service.annotations }}
+    {{- include "common.labels" $ | nindent 4 }}
+  {{- with $.Values.service.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
@@ -13,7 +13,7 @@ spec:
   parentRefs: {{- toYaml .gatewayParentRefs | nindent 4 }}
   rules:
   - backendRefs:
-    - name: {{ include "common.fullname" . }}
+    - name: {{ include "common.fullname" $ }}
       port: {{ .port }}
 ---
 {{- end }}
