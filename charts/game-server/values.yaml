@@ -73,3 +73,7 @@ service:
     # name: "game-udp"
     # port: "29070"
     # protocol: UDP
+    # gatewayParentRefs:
+    # - name: nginx-gateway
+    #   namespace: kube-system
+    #   sectionName: game-udp-listener
