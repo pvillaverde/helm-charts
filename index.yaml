@@ -161,6 +161,17 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/game-server-1.0.0-alpha-1/game-server-1.0.0-alpha-1.tgz
     version: 1.0.0-alpha-1
+  library:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-09-08T19:18:15.765505448Z"
+    description: Common templates and definitions for other charts
+    digest: 5c0d2e75c8e91f51e667e4455ad37dd735b05908bf85b7a1560d6596edffccb7
+    name: library
+    type: library
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/library-0.1.0/library-0.1.0.tgz
+    version: 0.1.0
   mysql:
   - annotations:
       images: |
@@ -343,4 +354,4 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/radio-dixital-0.1.1/radio-dixital-0.1.1.tgz
     version: 0.1.1
-generated: "2026-09-08T11:06:27.443240276Z"
+generated: "2026-09-08T19:18:15.765583342Z"
