@@ -161,6 +161,47 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/game-server-1.0.0-alpha-1/game-server-1.0.0-alpha-1.tgz
     version: 1.0.0-alpha-1
+  mysql:
+  - annotations:
+      images: |
+        - name: mysql
+          image: docker.io/bitnami/mysql:9.4.0-debian-12-r1
+        - name: mysqld-exporter
+          image: docker.io/bitnami/mysqld-exporter:0.17.2-debian-12-r16
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r50
+      licenses: Apache-2.0
+      tanzuCategory: service
+    apiVersion: v2
+    appVersion: 9.4.0
+    created: "2026-09-08T11:06:27.442887274Z"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: MySQL is a fast, reliable, scalable, and easy to use open source
+      relational database system. Designed to handle mission-critical, heavy-load
+      production applications.
+    digest: 0998aa61cf63b3d2546f24ff4ff8f7a9fb153bd582884f4c8f21be30896d6847
+    home: https://bitnami.com
+    icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/mysql/img/mysql-stack-220x234.png
+    keywords:
+    - mysql
+    - database
+    - sql
+    - cluster
+    - high availability
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: mysql
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/mysql
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/mysql-14.0.5/mysql-14.0.5.tgz
+    version: 14.0.5
   radio-dixital:
   - apiVersion: v2
     appVersion: 1.5.0
@@ -302,4 +343,4 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/radio-dixital-0.1.1/radio-dixital-0.1.1.tgz
     version: 0.1.1
-generated: "2026-07-27T16:36:44.262687198Z"
+generated: "2026-09-08T11:06:27.443240276Z"
