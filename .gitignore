@@ -1,2 +1,3 @@
 .local-dev
 **/*/charts/*.tgz
+**/*/Chart.lock

@@ -1,6 +1,0 @@
-dependencies:
-- name: library
-  repository: https://pvillaverde.github.io/helm-charts
-  version: 0.1.0
-digest: sha256:83bb2a856da419d6fcecf2a0c85799326e2bb14b7a0863df4370b6892554f555
-generated: "2026-09-08T21:47:40.7988935+02:00"
