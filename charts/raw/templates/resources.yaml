@@ -1,0 +1,9 @@
+{{- if or $.Values.resources $.Values.templates -}}
+  {{- $base := fromYaml (include "raw.common" .) -}}
+  {{- range $.Values.resources }}
+---{{- toYaml (merge . $base) | nindent 0 }}
+  {{- end }}
+  {{- range $.Values.templates }}
+---{{- (tpl . $) | nindent 0 }}
+  {{- end }}
+{{- end -}}
