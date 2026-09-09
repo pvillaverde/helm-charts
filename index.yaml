@@ -192,6 +192,16 @@ entries:
   library:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-09-09T14:05:40.102064804Z"
+    description: Common templates and definitions for other charts
+    digest: 9b1a43fac456b05ac0eec751e76f3a683bb03b38bd22049503d94b581e8043eb
+    name: library
+    type: library
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/library-0.2.0/library-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-09-08T19:18:15.765505448Z"
     description: Common templates and definitions for other charts
     digest: 5c0d2e75c8e91f51e667e4455ad37dd735b05908bf85b7a1560d6596edffccb7
@@ -382,4 +392,4 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/radio-dixital-0.1.1/radio-dixital-0.1.1.tgz
     version: 0.1.1
-generated: "2026-09-08T20:34:28.031344536Z"
+generated: "2026-09-09T14:05:40.102128707Z"
