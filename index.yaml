@@ -3,6 +3,20 @@ entries:
   game-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-09-09T14:51:48.8490288Z"
+    dependencies:
+    - name: library
+      repository: https://pvillaverde.github.io/helm-charts
+      version: 0.1.0
+    description: Helm Chart with common resource configurations for a game server
+    digest: e9e3a860c8813e1faf0c8d8b379c1efd5801716967e24dcb859a07f647b58a9f
+    name: game-server
+    type: application
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/game-server-1.0.2/game-server-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-09-08T20:34:28.031021936Z"
     dependencies:
     - name: library
@@ -392,4 +406,30 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/radio-dixital-0.1.1/radio-dixital-0.1.1.tgz
     version: 0.1.1
-generated: "2026-09-09T14:05:40.102128707Z"
+  raw:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-09-09T14:51:49.082662248Z"
+    dependencies:
+    - name: library
+      repository: https://pvillaverde.github.io/helm-charts
+      version: 0.2.0
+    description: Render raw kubernetes manifests managed by a helm release
+    digest: c6ea0fd37e88ae9292929e99e6a17c2101052d386624dde03eea66b55fedd80f
+    home: https://github.com/pvillaverde/helm-charts/tree/main/charts/raw
+    icon: https://helm.sh/assets/images/Logo-Tweak-Light-d053f1306a8b7f1c8c0a3856cba76397.png
+    keywords:
+    - raw
+    - templates
+    - resources
+    maintainers:
+    - name: Pablo Villaverde
+      url: https://github.com/pvillaverde
+    name: raw
+    sources:
+    - https://github.com/pvillaverde/helm-charts/tree/main/charts/raw"
+    type: application
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/raw-0.1.0/raw-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-09-09T14:51:49.082912166Z"
