@@ -5,10 +5,11 @@ metadata:
   name: {{ include "common.fullname" . }}
   labels:
     {{- include "common.labels" . | nindent 4 }}
-  {{- with .Values.service.annotations }}
   annotations:
+    {{- include "common.annotations" . | nindent 4 }}
+    {{- with .Values.serviceAccount.annotations }}
     {{- toYaml . | nindent 4 }}
-  {{- end }}
+    {{- end }}
 spec:
   type: {{ .Values.service.type }}
   sessionAffinity: {{ .Values.service.sessionAffinity }}

@@ -1,10 +1,10 @@
 {{/*
 Common annotations
 */}}
-{{- define "common.podAnnotations" -}}
+{{- define "common.annotations" -}}
 helm.sh/chart: {{ include "common.chart" . }}
 {{ include "common.selectorLabels" . }}
-{{- if .Values.podAnnotations }}
-{{ toYaml .Values.podAnnotations }}
+{{- if .Values.commonAnnotations }}
+{{ toYaml .Values.commonAnnotations }}
 {{- end }}
 {{- end }}

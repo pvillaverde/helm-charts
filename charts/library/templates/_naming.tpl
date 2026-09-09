@@ -31,6 +31,14 @@ Create chart name and version as used by the chart label.
 {{- end }}
 
 {{/*
+Allow the release namespace to be overridden for multi-namespace deployments in combined charts.
+*/}}
+{{- define "common.namespace" -}}
+{{- default .Release.Namespace .Values.namespaceOverride | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "common.serviceAccountName" -}}
