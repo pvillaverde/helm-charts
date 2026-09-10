@@ -1,5 +1,5 @@
 {{- define "common.serviceaccount" -}}
-{{- if .Values.serviceAccount.create -}}
+{{- if and .Values.serviceAccount .Values.serviceAccount.create -}}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
