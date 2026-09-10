@@ -5,6 +5,9 @@
 */}}
 {{- define "raw.common" -}}
 metadata:
+  {{- if .Values.forceReleaseName }}
+  name: {{ $.Release.Name }}
+  {{- end }}
   labels: {{- include "common.labels" $ | nindent 4 }}
   annotations: {{- include "common.annotations" $ | nindent 4 }}
 {{- end }}

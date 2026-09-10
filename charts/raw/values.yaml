@@ -1,3 +1,5 @@
+# forceReleaseName -- Forces the release name into every resource created in the `resources` array.
+forceReleaseName: false
 ## Common Labels
 # commonLabels -- Common Labels are added to each kubernetes resource manifest.
 commonLabels: {}
