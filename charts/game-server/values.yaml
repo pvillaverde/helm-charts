@@ -30,7 +30,7 @@ resources:
 
 priorityClassName: ""
 nodeSelector: {}
-tolerations: {}
+tolerations: []
 
 podSecurityContext:
   fsGroup: 3000
