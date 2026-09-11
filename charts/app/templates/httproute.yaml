@@ -7,9 +7,6 @@ metadata:
     {{- include "common.labels" $ | nindent 4 }}
   annotations:
     {{- include "common.annotations" . | nindent 4 }}
-    {{- with $.Values.serviceAccount.annotations }}
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
 spec:
   parentRefs: {{- toYaml $.Values.httpRoute.parentRefs | nindent 4 }}
   hostnames: {{- toYaml $.Values.httpRoute.hostnames | nindent 4 }}
