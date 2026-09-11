@@ -417,6 +417,16 @@ entries:
   library:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-09-11T13:51:42.158926755Z"
+    description: Common templates and definitions for other charts
+    digest: 53f40ffca849e7c22a6f531d6fefd87ed86a50ad58252f51661aba26567833a2
+    name: library
+    type: library
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/library-0.2.3/library-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-09-11T12:01:41.965255724Z"
     description: Common templates and definitions for other charts
     digest: fe3619dcca1341a9a3f2d9823c895441cb098a178b83f7b21b806df16874a8ee
@@ -647,4 +657,4 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/raw-0.1.0/raw-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-11T13:39:30.235281218Z"
+generated: "2026-09-11T13:51:42.159112544Z"
