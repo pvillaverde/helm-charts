@@ -38,3 +38,4 @@ spec:
   volumeName: pv-{{ $.Release.Name }}-backup
   {{- end }}}
   storageClassName: {{ $.Values.backupJob.storageClassName}} # Empty string must be explicitly set otherwise default StorageClass will be set
+{{- end }}}
