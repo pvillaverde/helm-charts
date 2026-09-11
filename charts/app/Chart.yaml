@@ -2,7 +2,7 @@ apiVersion: v2
 name: app
 description: Common deploy manifests for a web app raw kubernetes manifests managed by a helm release
 type: application
-version: 0.2.1
+version: 0.2.2
 appVersion: "1.0.0"
 icon: "https://helm.sh/assets/images/Logo-Tweak-Light-d053f1306a8b7f1c8c0a3856cba76397.png"
 home: "https://github.com/pvillaverde/helm-charts/tree/main/charts/app"
@@ -15,7 +15,7 @@ maintainers:
   url: https://github.com/pvillaverde
 dependencies:
 - name: library
-  version: 0.2.1
+  version: 0.2.2
   repository: https://pvillaverde.github.io/helm-charts
 sources:
 - https://github.com/pvillaverde/helm-charts/tree/main/charts/app"
