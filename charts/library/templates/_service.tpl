@@ -21,6 +21,5 @@ spec:
       name: {{ .name }}
     {{- end }}
   selector:
-    matchLabels:
-      {{- include "common.selectorLabels" . | nindent 6 }}
+    {{- include "common.selectorLabels" . | nindent 6 }}
 {{- end }}
