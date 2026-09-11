@@ -3,6 +3,32 @@ entries:
   app:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-09-11T13:52:57.589558372Z"
+    dependencies:
+    - name: library
+      repository: https://pvillaverde.github.io/helm-charts
+      version: 0.2.3
+    description: Common deploy manifests for a web app raw kubernetes manifests managed
+      by a helm release
+    digest: 68a8bebb6f4f794e485852dda9d2bf9156856aa1d3945eceb952efb78e5c0b03
+    home: https://github.com/pvillaverde/helm-charts/tree/main/charts/app
+    icon: https://helm.sh/assets/images/Logo-Tweak-Light-d053f1306a8b7f1c8c0a3856cba76397.png
+    keywords:
+    - app
+    - templates
+    - resources
+    maintainers:
+    - name: Pablo Villaverde
+      url: https://github.com/pvillaverde
+    name: app
+    sources:
+    - https://github.com/pvillaverde/helm-charts/tree/main/charts/app"
+    type: application
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/app-0.2.5/app-0.2.5.tgz
+    version: 0.2.5
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-09-11T13:39:30.235120127Z"
     dependencies:
     - name: library
@@ -184,6 +210,20 @@ entries:
     - https://github.com/pvillaverde/helm-charts/releases/download/app-0.1.0/app-0.1.0.tgz
     version: 0.1.0
   game-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-09-11T13:52:57.748077882Z"
+    dependencies:
+    - name: library
+      repository: https://pvillaverde.github.io/helm-charts
+      version: 0.2.3
+    description: Helm Chart with common resource configurations for a game server
+    digest: c4b6eb590d6fccc87b0cafce83d3e2ad26e535b4be425d7a95dedfcbbca5c68c
+    name: game-server
+    type: application
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/game-server-1.0.5/game-server-1.0.5.tgz
+    version: 1.0.5
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2026-09-11T12:03:38.091667541Z"
@@ -609,6 +649,31 @@ entries:
   raw:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-09-11T13:52:57.878446125Z"
+    dependencies:
+    - name: library
+      repository: https://pvillaverde.github.io/helm-charts
+      version: 0.2.3
+    description: Render raw kubernetes manifests managed by a helm release
+    digest: 4b257ce8752966ee3ce566a8bcc68df63e4dbc7f56796c954ac163b3ef075176
+    home: https://github.com/pvillaverde/helm-charts/tree/main/charts/raw
+    icon: https://helm.sh/assets/images/Logo-Tweak-Light-d053f1306a8b7f1c8c0a3856cba76397.png
+    keywords:
+    - raw
+    - templates
+    - resources
+    maintainers:
+    - name: Pablo Villaverde
+      url: https://github.com/pvillaverde
+    name: raw
+    sources:
+    - https://github.com/pvillaverde/helm-charts/tree/main/charts/raw"
+    type: application
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/raw-0.2.1/raw-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-09-10T09:13:30.065212316Z"
     dependencies:
     - name: library
@@ -657,4 +722,4 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/raw-0.1.0/raw-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-11T13:51:42.159112544Z"
+generated: "2026-09-11T13:52:57.878699575Z"
