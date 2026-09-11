@@ -2,7 +2,7 @@ apiVersion: v2
 name: app
 description: Common deploy manifests for a web app raw kubernetes manifests managed by a helm release
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: "1.0.0"
 icon: "https://helm.sh/assets/images/Logo-Tweak-Light-d053f1306a8b7f1c8c0a3856cba76397.png"
 home: "https://github.com/pvillaverde/helm-charts/tree/main/charts/app"

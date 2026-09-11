@@ -85,3 +85,10 @@ service:
     # - name: nginx-gateway
     #   namespace: kube-system
     #   sectionName: https-listener
+httpRoute:
+  enabled: false
+  hostnames: []
+  parentRefs: []
+  # - name: nginx-internal-gateway
+  #   namespace: kube-system
+  #   sectionName: https-listener
