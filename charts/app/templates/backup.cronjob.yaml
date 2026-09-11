@@ -3,6 +3,10 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: rsync-{{ include "common.fullname" . }}-to-nfs
+  labels:
+    {{- include "common.labels" $ | nindent 4 }}
+  annotations:
+    {{- include "common.annotations" . | nindent 4 }}
 spec:
   schedule: "0 3 * * *"
   concurrencyPolicy: Forbid

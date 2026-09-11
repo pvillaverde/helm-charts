@@ -4,6 +4,10 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv-{{ $.Release.Name }}-backup
+  labels:
+    {{- include "common.labels" $ | nindent 4 }}
+  annotations:
+    {{- include "common.annotations" . | nindent 4 }}
 spec:
   capacity:
     storage: {{ $.Values.dataVolume.size}}
@@ -22,12 +26,16 @@ spec:
       server: {{ $.Values.backupJob.nfsServer}}
       share: /{{ $.Values.backupJob.nfsShare}}
       subDir: {{ $.Release.Name }}
-{{- end }}}
+{{- end }}
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: pvc-{{ $.Release.Name }}-backup
+  labels:
+    {{- include "common.labels" $ | nindent 4 }}
+  annotations:
+    {{- include "common.annotations" . | nindent 4 }}
 spec:
   accessModes:
   - ReadWriteMany
@@ -36,6 +44,6 @@ spec:
       storage: {{ $.Values.dataVolume.size}}
   {{- if $.Values.backupJob.customVolume }}
   volumeName: pv-{{ $.Release.Name }}-backup
-  {{- end }}}
+  {{- end }}
   storageClassName: {{ $.Values.backupJob.storageClassName}} # Empty string must be explicitly set otherwise default StorageClass will be set
-{{- end }}}
+{{- end }}
