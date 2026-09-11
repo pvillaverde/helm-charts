@@ -7,7 +7,7 @@ metadata:
     {{- include "common.labels" . | nindent 4 }}
   annotations:
     {{- include "common.annotations" . | nindent 4 }}
-    {{- with .Values.serviceAccount.annotations }}
+    {{- with .Values.service.annotations }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
 spec:
