@@ -1,0 +1,43 @@
+{{- if $.Values.backupJob.enabled }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: rsync-{{ include "common.fullname" . }}-to-nfs
+spec:
+  schedule: "0 3 * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          automountServiceAccountToken: false
+          securityContext: {{- toYaml $.Values.securityContext | nindent 12 }}
+          containers:
+          - name: init-rsync
+            image: alpine:latest
+            volumeMounts:
+            - name: {{ include "common.fullname" . }}-data
+              mountPath: /data
+            - name: {{ include "common.fullname" . }}-backup-data
+              mountPath: /backup
+            command: [ "/bin/sh", "-c" ]
+            args:
+            - |
+              apk add rsync
+              cd /data/ && rsync -avz . /backup/
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: false
+              capabilities:
+                drop: [ "all" ]
+                add: [ "DAC_OVERRIDE"]
+          volumes:
+          - name: {{ include "common.fullname" . }}-data
+            persistentVolumeClaim:
+              claimName: data-{{ include "common.fullname" . }}-0
+          - name: {{ include "common.fullname" . }}-backup-data
+            persistentVolumeClaim:
+              claimName: pvc-{{ $.Release.Name }}-backup
+          restartPolicy: OnFailure
+          tolerations: {{- toYaml $.Values.tolerations | nindent 12 }}
+{{- end }}  

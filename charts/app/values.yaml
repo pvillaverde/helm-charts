@@ -1,0 +1,87 @@
+# Default values for chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  registry: docker.io
+  repository: nginx
+  tag: 1.31
+  digest: ""
+  pullPolicy: IfNotPresent
+# Wether to use a Deployment or Statefulsest
+kind: Statefulset
+updateStrategy:
+  type: RollingUpdate
+  maxUnavailable: 1
+
+env:
+- name: PUID
+  value: "1000"
+- name: PGID
+  value: "3000"
+- name: TZ
+  value: Europe/Madrid
+extraEnv: []
+resources:
+  requests:
+    cpu: 20m
+    memory: 20Mi
+  limits:
+    cpu: 30m
+    memory: 20Mi
+
+priorityClassName: ""
+nodeSelector: {}
+tolerations: {}
+livenessProb: {}
+readinessProb: {}
+startupProb: {}
+
+podSecurityContext:
+  fsGroup: 3000
+  seccompProfile:
+    type: RuntimeDefault
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: [ "all" ]
+
+backupJob:
+  enabled: false
+  schedule: "0 3 * * *"
+  nfsServer: "" # Must be set to use BackupJob
+  nfsShare: "" # Must be set to use BackupJob
+  # force the overwrite of what is currently on the dataVolume with what it is in the backup.
+  forceInitRsync: false
+
+# If the image or the server downloads stuff that is not needed to backup but you dont want to download each time the pod is created.
+localFilesVolume:
+  enabled: false
+  size: 10Gi
+  mounts:
+  - mountPath: /app
+dataVolume:
+  size: 3Gi
+  # Where the data volume will be mounted. Can be used with subPaths, but the whole volume will be backed up with the cronJob.
+  mounts:
+  - mountPath: /data
+# extraVolumes for the container, i.e. if you want to mount config files or secrets.
+extraVolumes: []
+# extraVolumesMounts for the container, i.e. if you want to mount config files or secrets.
+extraVolumesMounts: []
+
+service:
+  type: ClusterIP
+  sessionAffinity: None
+  ports: []
+    # name: "http"
+    # port: "80"
+    # protocol: TCP
+    # gatewayParentRefs:
+    # - name: nginx-gateway
+    #   namespace: kube-system
+    #   sectionName: https-listener
