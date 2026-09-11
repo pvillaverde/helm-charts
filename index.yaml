@@ -3,6 +3,32 @@ entries:
   app:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-09-11T12:03:37.949275653Z"
+    dependencies:
+    - name: library
+      repository: https://pvillaverde.github.io/helm-charts
+      version: 0.2.2
+    description: Common deploy manifests for a web app raw kubernetes manifests managed
+      by a helm release
+    digest: 76d53646c36a7e5d145c773672718b171535a0545cec11e17fc84480896c5f21
+    home: https://github.com/pvillaverde/helm-charts/tree/main/charts/app
+    icon: https://helm.sh/assets/images/Logo-Tweak-Light-d053f1306a8b7f1c8c0a3856cba76397.png
+    keywords:
+    - app
+    - templates
+    - resources
+    maintainers:
+    - name: Pablo Villaverde
+      url: https://github.com/pvillaverde
+    name: app
+    sources:
+    - https://github.com/pvillaverde/helm-charts/tree/main/charts/app"
+    type: application
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/app-0.2.2/app-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-09-11T11:55:49.912223216Z"
     dependencies:
     - name: library
@@ -106,6 +132,20 @@ entries:
     - https://github.com/pvillaverde/helm-charts/releases/download/app-0.1.0/app-0.1.0.tgz
     version: 0.1.0
   game-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-09-11T12:03:38.091667541Z"
+    dependencies:
+    - name: library
+      repository: https://pvillaverde.github.io/helm-charts
+      version: 0.2.2
+    description: Helm Chart with common resource configurations for a game server
+    digest: fb1e744a08d3d93847f0e1a50e25a1c00e028461bdb3627761099eeb84d34df3
+    name: game-server
+    type: application
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/game-server-1.0.4/game-server-1.0.4.tgz
+    version: 1.0.4
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2026-09-11T11:08:43.158636221Z"
@@ -555,4 +595,4 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/raw-0.1.0/raw-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-11T12:01:41.965421372Z"
+generated: "2026-09-11T12:03:38.091877707Z"
