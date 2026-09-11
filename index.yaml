@@ -3,6 +3,32 @@ entries:
   app:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-09-11T13:39:30.235120127Z"
+    dependencies:
+    - name: library
+      repository: https://pvillaverde.github.io/helm-charts
+      version: 0.2.2
+    description: Common deploy manifests for a web app raw kubernetes manifests managed
+      by a helm release
+    digest: 87e32559d3fed758bcd2fa01ef996b4602da2260a7f630da65872643f9dd7a8e
+    home: https://github.com/pvillaverde/helm-charts/tree/main/charts/app
+    icon: https://helm.sh/assets/images/Logo-Tweak-Light-d053f1306a8b7f1c8c0a3856cba76397.png
+    keywords:
+    - app
+    - templates
+    - resources
+    maintainers:
+    - name: Pablo Villaverde
+      url: https://github.com/pvillaverde
+    name: app
+    sources:
+    - https://github.com/pvillaverde/helm-charts/tree/main/charts/app"
+    type: application
+    urls:
+    - https://github.com/pvillaverde/helm-charts/releases/download/app-0.2.4/app-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-09-11T12:46:12.224293913Z"
     dependencies:
     - name: library
@@ -621,4 +647,4 @@ entries:
     urls:
     - https://github.com/pvillaverde/helm-charts/releases/download/raw-0.1.0/raw-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-11T12:46:12.22444857Z"
+generated: "2026-09-11T13:39:30.235281218Z"
