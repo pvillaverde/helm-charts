@@ -53,6 +53,8 @@ containerSecurityContext:
 backupJob:
   enabled: false
   schedule: "0 3 * * *"
+  storageClassName: ""
+  customVolume: false
   nfsServer: "" # Must be set to use BackupJob
   nfsShare: "" # Must be set to use BackupJob
   # force the overwrite of what is currently on the dataVolume with what it is in the backup.

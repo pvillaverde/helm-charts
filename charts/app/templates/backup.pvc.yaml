@@ -1,4 +1,5 @@
 {{- if $.Values.backupJob.enabled }}
+{{- if $.Values.backupJob.customVolume }}
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -21,6 +22,7 @@ spec:
       server: {{ $.Values.backupJob.nfsServer}}
       share: /{{ $.Values.backupJob.nfsShare}}
       subDir: {{ $.Release.Name }}
+{{- end }}}
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -32,6 +34,7 @@ spec:
   resources:
     requests:
       storage: {{ $.Values.dataVolume.size}}
+  {{- if $.Values.backupJob.customVolume }}
   volumeName: pv-{{ $.Release.Name }}-backup
-  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-{{- end }}  
+  {{- end }}}
+  storageClassName: {{ $.Values.backupJob.storageClassName}} # Empty string must be explicitly set otherwise default StorageClass will be set
